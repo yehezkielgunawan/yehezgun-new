@@ -33,7 +33,6 @@ export async function getStaticProps() {
 
   return {
     props: {
-      // newProjectList,
       newestProjects,
     },
     revalidate: 30,

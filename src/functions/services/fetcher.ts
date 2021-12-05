@@ -24,3 +24,9 @@ export const getAllProjectsTable = async () => {
   const minifiedRecords = getMinifiedRecords(records);
   return minifiedRecords;
 };
+
+export const getAllExperiences = async () => {
+  const records = await base("Experiences").select({}).all();
+  const minifiedRecords = getMinifiedRecords(records);
+  return minifiedRecords;
+};

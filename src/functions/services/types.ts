@@ -40,3 +40,16 @@ export type SingleProjectsRes = {
 };
 
 export type Projects = Array<SingleProjectsRes>;
+
+export type SingleExperience = {
+  name: string;
+  company_name: string;
+  duration: string;
+};
+
+export type SingleExperienceRes = {
+  id: string;
+  fields: SingleExperience;
+};
+
+export type Experiences = Array<SingleExperienceRes>;
