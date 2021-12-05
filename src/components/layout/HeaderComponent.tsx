@@ -1,13 +1,19 @@
+import { IconButton } from "@chakra-ui/button";
 import { useColorMode } from "@chakra-ui/color-mode";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Flex, Text } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
+import { useRouter } from "next/dist/client/router";
 import React from "react";
-import { FaGithub } from "react-icons/fa";
+
+import { LinkComponent } from "components/ui/LinkComponent";
+import { menuList } from "constants/menuList";
 
 import DarkModeSwitch from "./DarkModeSwitch";
 
 const HeaderComponent = () => {
   const { colorMode } = useColorMode();
+  const router = useRouter();
   return (
     <Box
       justifyContent="start"
@@ -28,15 +34,55 @@ const HeaderComponent = () => {
         px={[3, 1]}
       >
         <Text as="a" href="/" fontSize="lg">
-          <b>yehez-nextjs-chakra-starter</b>
+          <b>yehezgun.com</b>
         </Text>
 
-        <Flex gridGap={3} align="center">
-          <Button leftIcon={<FaGithub />} variant="ghost" size="sm">
-            Open in Github
-          </Button>
-
+        <Flex gridGap={3} align="center" display={["none", "flex"]}>
+          {menuList.map((menu, index) => (
+            <LinkComponent key={index} href={menu.route}>
+              <Text
+                as="a"
+                fontSize="md"
+                _hover={{
+                  color: "gray.500",
+                }}
+                color={router.pathname === menu.route ? "gray.500" : ""}
+                cursor="pointer"
+              >
+                <b>{menu.label}</b>
+              </Text>
+            </LinkComponent>
+          ))}
           <DarkModeSwitch />
+        </Flex>
+
+        <Flex gridGap={3} alignItems="center" display={["flex", "none"]}>
+          <DarkModeSwitch />
+          <Menu autoSelect={false}>
+            <MenuButton
+              as={IconButton}
+              aria-label="Options"
+              icon={<HamburgerIcon />}
+              variant="outline"
+            />
+            <MenuList>
+              {menuList.map((menu, index) => (
+                <LinkComponent key={index} href={menu.route}>
+                  <MenuItem
+                    as="a"
+                    _hover={{
+                      bg: "gray.500",
+                    }}
+                    bg={router.pathname === menu.route ? "gray.500" : ""}
+                  >
+                    <Text fontSize="md">
+                      <b>{menu.label}</b>
+                    </Text>
+                  </MenuItem>
+                </LinkComponent>
+              ))}
+            </MenuList>
+          </Menu>
         </Flex>
       </Flex>
     </Box>
