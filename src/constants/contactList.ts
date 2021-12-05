@@ -12,17 +12,6 @@ export type SingleContact = {
 
 export const contactList: Array<SingleContact> = [
   {
-    name: "Starter Template",
-    icon: FcTemplate,
-    link_route:
-      "https://github.com/yehezkielgunawan?tab=repositories&q=starter&type=&language=&sort=",
-  },
-  {
-    name: "Personal Docs",
-    icon: SiReadthedocs,
-    link_route: "https://docs.yehezgun.com",
-  },
-  {
     name: "Linkedin",
     icon: FaLinkedin,
     link_route: "https://www.linkedin.com/in/yehezkiel-gunawan-595128138/",
@@ -41,5 +30,19 @@ export const contactList: Array<SingleContact> = [
     name: "Email",
     icon: MdEmail,
     link_route: "mailto:yehezkiel.gunawan28@gmail.com",
+  },
+];
+
+export const specialItems: Array<SingleContact> = [
+  {
+    name: "Starter Template",
+    icon: FcTemplate,
+    link_route:
+      "https://github.com/yehezkielgunawan?tab=repositories&q=starter&type=&language=&sort=",
+  },
+  {
+    name: "Personal Docs",
+    icon: SiReadthedocs,
+    link_route: "https://docs.yehezgun.com",
   },
 ];
