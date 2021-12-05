@@ -4,9 +4,9 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import { useRouter } from "next/dist/client/router";
+import NextLink from "next/link";
 import React from "react";
 
-import { LinkComponent } from "components/ui/LinkComponent";
 import { menuList } from "constants/menuList";
 
 import DarkModeSwitch from "./DarkModeSwitch";
@@ -39,7 +39,7 @@ const HeaderComponent = () => {
 
         <Flex gridGap={3} align="center" display={["none", "flex"]}>
           {menuList.map((menu, index) => (
-            <LinkComponent key={index} href={menu.route}>
+            <NextLink key={index} href={menu.route} passHref>
               <Text
                 as="a"
                 fontSize="md"
@@ -51,7 +51,7 @@ const HeaderComponent = () => {
               >
                 <b>{menu.label}</b>
               </Text>
-            </LinkComponent>
+            </NextLink>
           ))}
           <DarkModeSwitch />
         </Flex>
@@ -67,7 +67,7 @@ const HeaderComponent = () => {
             />
             <MenuList>
               {menuList.map((menu, index) => (
-                <LinkComponent key={index} href={menu.route}>
+                <NextLink key={index} href={menu.route} passHref>
                   <MenuItem
                     as="a"
                     _hover={{
@@ -79,7 +79,7 @@ const HeaderComponent = () => {
                       <b>{menu.label}</b>
                     </Text>
                   </MenuItem>
-                </LinkComponent>
+                </NextLink>
               ))}
             </MenuList>
           </Menu>
