@@ -1,3 +1,8 @@
+export type SingleRes<ResType> = {
+  id: string;
+  fields: ResType;
+};
+
 export type SingleProject = {
   project_title: string;
   image_url?: Array<SingleProjectImg>;
@@ -34,12 +39,7 @@ export type SingleProjectImg = {
   width: number;
 };
 
-export type SingleProjectsRes = {
-  id: string;
-  fields: SingleProject;
-};
-
-export type Projects = Array<SingleProjectsRes>;
+export type Projects = Array<SingleRes<SingleProject>>;
 
 export type SingleExperience = {
   name: string;
@@ -47,9 +47,4 @@ export type SingleExperience = {
   duration: string;
 };
 
-export type SingleExperienceRes = {
-  id: string;
-  fields: SingleExperience;
-};
-
-export type Experiences = Array<SingleExperienceRes>;
+export type Experiences = Array<SingleRes<SingleExperience>>;
