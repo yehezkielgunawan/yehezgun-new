@@ -30,3 +30,9 @@ export const getAllExperiences = async () => {
   const minifiedRecords = getMinifiedRecords(records);
   return minifiedRecords;
 };
+
+export const getArticleList = async () => {
+  const records = await base("Blog").select({}).all();
+  const minifiedRecords = getMinifiedRecords(records);
+  return minifiedRecords;
+};

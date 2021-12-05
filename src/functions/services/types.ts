@@ -48,3 +48,14 @@ export type SingleExperience = {
 };
 
 export type Experiences = Array<SingleRes<SingleExperience>>;
+
+export type SingleArticle = {
+  title: string;
+  slug: string;
+  date: string;
+  article_image?: Array<SingleProjectImg>;
+  lang: string;
+  content: string;
+};
+
+export type Articles = Array<SingleRes<SingleArticle>>;
