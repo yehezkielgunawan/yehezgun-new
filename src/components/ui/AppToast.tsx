@@ -3,7 +3,7 @@ import { useToast, UseToastOptions } from "@chakra-ui/react";
 export const useAppToast = (options?: UseToastOptions) =>
   useToast({
     variant: "top-accent",
-    position: "top-right",
+    position: "bottom-right",
     isClosable: true,
     ...options,
   });
