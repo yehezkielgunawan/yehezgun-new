@@ -51,7 +51,7 @@ export const newTheme = {
         <Text
           as="u"
           _hover={{
-            border: "2  px",
+            border: "2px",
             borderColor: "blue.500",
             borderRadius: "md",
           }}
