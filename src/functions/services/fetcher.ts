@@ -32,7 +32,22 @@ export const getAllExperiences = async () => {
 };
 
 export const getArticleList = async () => {
-  const records = await base("Blog").select({}).all();
+  const records = await base("Blog")
+    .select({ sort: [{ field: "date", direction: "desc" }] })
+    .all();
   const minifiedRecords = getMinifiedRecords(records);
   return minifiedRecords;
+};
+
+export const getArticlePost = async (slug: string) => {
+  const records = await base("Blog")
+    .select({
+      maxRecords: 1,
+      filterByFormula: `{slug} = "${slug}"`,
+    })
+    .all();
+
+  const post = getMinifiedRecords(records);
+
+  return post;
 };
