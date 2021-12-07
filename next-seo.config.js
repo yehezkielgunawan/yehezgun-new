@@ -14,12 +14,12 @@ const defaultSEOConfig = {
     images: [
       {
         url: "https://yehez-og-image.yehezgun.com/yehezgun.com.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fres.cloudinary.com%2Fyehez%2Fimage%2Fupload%2Fv1636202181%2Fpeep_amkhuu.svg&widths=250&heights=250",
-        alt: "yehez-nextchakra-starter.yehezgun.com og-image",
+        alt: "yehezgun.com og-image",
         width: 800,
         height: 600,
       },
     ],
-    site_name: "yehez-nextchakra-starter",
+    site_name: "yehezgun",
   },
   twitter: {
     handle: "@handle",

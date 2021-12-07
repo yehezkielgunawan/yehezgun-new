@@ -33,7 +33,9 @@ export const getAllExperiences = async () => {
 
 export const getArticleList = async () => {
   const records = await base("Blog")
-    .select({ sort: [{ field: "date", direction: "desc" }] })
+    .select({
+      sort: [{ field: "date", direction: "desc" }],
+    })
     .all();
   const minifiedRecords = getMinifiedRecords(records);
   return minifiedRecords;

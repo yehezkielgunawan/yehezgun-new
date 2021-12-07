@@ -47,7 +47,7 @@ export const newTheme = {
   a: (props: any) => {
     const { href } = props;
     return (
-      <Link href={href} isExternal={href.includes("#") ? false : true}>
+      <Link href={href} isExternal={href[0] === "#" ? false : true}>
         <Text
           as="u"
           _hover={{
