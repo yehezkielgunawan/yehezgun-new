@@ -17,6 +17,7 @@ import NextLink from "next/link";
 import React, { useEffect } from "react";
 
 import { useAppToast } from "components/ui/AppToast";
+import MetaHead from "components/ui/MetaHead";
 import PopoverComponent from "components/ui/PopoverComponent";
 import Main from "components/wrapper/Main";
 import {
@@ -54,6 +55,11 @@ const Index = ({ newestProjects }: { newestProjects: Projects }) => {
 
   return (
     <Main>
+      <MetaHead
+        pageTitle="Home"
+        pageDesc="Welcome to my personal site. Take a look and enjoy!"
+      />
+
       <Flex justifyContent="space-between" align="center" gridGap={4}>
         <Stack spacing={2}>
           <Heading as="h5" size="xl">

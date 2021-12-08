@@ -10,6 +10,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 
 import { newTheme } from "components/markdown/md-theme";
+import MetaHead from "components/ui/MetaHead";
 import Main from "components/wrapper/Main";
 import { DEFAULT_IMG_ARTICLE } from "constants/baseConfig";
 import { formatDate } from "functions/helpers/formatDate";
@@ -44,6 +45,11 @@ const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
 
   return (
     <Main>
+      <MetaHead
+        pageTitle={postData.fields.title}
+        pageDesc="Yehezkiel Gunawan's Article Post"
+        route={`articles/${postData.fields.slug}`}
+      />
       <Stack spacing={3}>
         <Img
           alt="article-img"

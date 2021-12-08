@@ -7,6 +7,7 @@ import NextLink from "next/link";
 import React, { useEffect, useState } from "react";
 
 import { useAppToast } from "components/ui/AppToast";
+import MetaHead from "components/ui/MetaHead";
 import Main from "components/wrapper/Main";
 import {
   CHECK_YOUR_CONNECTION_MESSAGE,
@@ -60,6 +61,11 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
 
   return (
     <Main>
+      <MetaHead
+        pageTitle="Articles"
+        pageDesc="Just some random thoughts."
+        route="articles"
+      />
       <Heading as="h5" size="xl">
         <b>Articles</b>
       </Heading>

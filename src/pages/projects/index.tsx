@@ -13,6 +13,7 @@ import {
 import React, { useEffect } from "react";
 
 import { useAppToast } from "components/ui/AppToast";
+import MetaHead from "components/ui/MetaHead";
 import Main from "components/wrapper/Main";
 import {
   CHECK_YOUR_CONNECTION_MESSAGE,
@@ -47,6 +48,11 @@ function ProjectsPage({ projectList }: { projectList: ProjectListType }) {
 
   return (
     <Main>
+      <MetaHead
+        pageTitle="Projects"
+        pageDesc="This is my personal projects that I've done before."
+        route="projects"
+      />
       <Heading as="h5" size="xl">
         <b>Projects</b>
       </Heading>

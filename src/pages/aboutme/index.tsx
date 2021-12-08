@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import { GoPrimitiveDot } from "react-icons/go";
 
 import { useAppToast } from "components/ui/AppToast";
+import MetaHead from "components/ui/MetaHead";
 import PopoverComponent from "components/ui/PopoverComponent";
 import Main from "components/wrapper/Main";
 import { CHECK_YOUR_CONNECTION_MESSAGE } from "constants/baseConfig";
@@ -40,6 +41,11 @@ function AboutMe({ experienceList }: { experienceList: Experiences }) {
 
   return (
     <Main>
+      <MetaHead
+        pageTitle="About Me"
+        pageDesc="A little description about me."
+        route="aboutme"
+      />
       <Flex justifyContent="space-between" gridGap={[4, 8]} align="center">
         <Stack spacing={[3, 4]}>
           <Heading as="h5" size="lg">
