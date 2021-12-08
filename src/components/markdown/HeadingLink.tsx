@@ -1,7 +1,7 @@
 import { Heading, Link } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
-import { convertToId, convertToIdLink } from "functions/helpers/conterToIdLink";
+import { convertToId, convertToIdLink } from "functions/helpers/convertToIdLink";
 
 type HeadingLinkProps = {
   children: string;
