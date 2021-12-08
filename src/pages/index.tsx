@@ -58,6 +58,7 @@ const Index = ({ newestProjects }: { newestProjects: Projects }) => {
       <MetaHead
         pageTitle="Home"
         pageDesc="Welcome to my personal site. Take a look and enjoy!"
+        isArticle={false}
       />
 
       <Flex justifyContent="space-between" align="center" gridGap={4}>

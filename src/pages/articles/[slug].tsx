@@ -49,6 +49,7 @@ const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
         pageTitle={postData.fields.title}
         pageDesc="Yehezkiel Gunawan's Article Post"
         route={`articles/${postData.fields.slug}`}
+        isArticle={true}
       />
       <Stack spacing={3}>
         <Img

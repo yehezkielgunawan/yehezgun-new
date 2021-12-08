@@ -6,9 +6,15 @@ type AppHeaderProps = {
   pageTitle: string;
   pageDesc: string;
   route?: string;
+  isArticle: boolean;
 };
 
-const MetaHead = ({ pageTitle, pageDesc, route }: AppHeaderProps) => {
+const MetaHead = ({
+  pageTitle,
+  pageDesc,
+  route,
+  isArticle,
+}: AppHeaderProps) => {
   return (
     <NextSeo
       title={`${pageTitle}`}
@@ -21,7 +27,7 @@ const MetaHead = ({ pageTitle, pageDesc, route }: AppHeaderProps) => {
         type: `website`,
         images: [
           {
-            url: `${yehezOgImage(pageTitle)}`,
+            url: `${yehezOgImage(pageTitle, isArticle)}`,
             alt: `${pageTitle} | YehezGun`,
             width: 800,
             height: 600,

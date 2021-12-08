@@ -45,6 +45,7 @@ function AboutMe({ experienceList }: { experienceList: Experiences }) {
         pageTitle="About Me"
         pageDesc="A little description about me."
         route="aboutme"
+        isArticle={true}
       />
       <Flex justifyContent="space-between" gridGap={[4, 8]} align="center">
         <Stack spacing={[3, 4]}>

@@ -52,6 +52,7 @@ function ProjectsPage({ projectList }: { projectList: ProjectListType }) {
         pageTitle="Projects"
         pageDesc="This is my personal projects that I've done before."
         route="projects"
+        isArticle={false}
       />
       <Heading as="h5" size="xl">
         <b>Projects</b>

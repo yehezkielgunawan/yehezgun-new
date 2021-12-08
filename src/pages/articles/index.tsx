@@ -65,6 +65,7 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
         pageTitle="Articles"
         pageDesc="Just some random thoughts."
         route="articles"
+        isArticle={false}
       />
       <Heading as="h5" size="xl">
         <b>Articles</b>
