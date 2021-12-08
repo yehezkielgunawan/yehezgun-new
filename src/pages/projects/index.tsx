@@ -63,7 +63,7 @@ function ProjectsPage({ projectList }: { projectList: ProjectListType }) {
       </Text>
 
       {dataProjects.map((project, index) => (
-        <Skeleton key={index} isLoaded={dataProjects ? true : false}>
+        <Skeleton key={index} isLoaded={dataProjects.length > 0 ? true : false}>
           <ChakraLink isExternal href={project.fields.project_url}>
             <Box
               _hover={{

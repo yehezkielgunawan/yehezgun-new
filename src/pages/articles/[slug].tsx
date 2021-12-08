@@ -11,6 +11,7 @@ import remarkGfm from "remark-gfm";
 
 import { newTheme } from "components/markdown/md-theme";
 import MetaHead from "components/ui/MetaHead";
+import PostLoader from "components/ui/PostLoader";
 import Main from "components/wrapper/Main";
 import { DEFAULT_IMG_ARTICLE } from "constants/baseConfig";
 import { formatDate } from "functions/helpers/formatDate";
@@ -42,6 +43,10 @@ export async function getStaticPaths() {
 
 const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
   const router = useRouter();
+
+  if (!postData) {
+    <PostLoader />;
+  }
 
   return (
     <Main>

@@ -1,8 +1,7 @@
 import { Img } from "@chakra-ui/image";
-import { Box, Center, Flex, Heading, Stack, Text } from "@chakra-ui/layout";
+import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/layout";
 import { Select } from "@chakra-ui/select";
 import { Skeleton } from "@chakra-ui/skeleton";
-import { Spinner } from "@chakra-ui/spinner";
 import NextLink from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -50,15 +49,6 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
     }
   }, [articleList, toast]);
 
-  if (!articleList || dataArticles.length < 1)
-    return (
-      <Main>
-        <Center>
-          <Spinner />
-        </Center>
-      </Main>
-    );
-
   return (
     <Main>
       <MetaHead
@@ -88,7 +78,10 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
             article.fields.lang === language
         )
         .map((article, index) => (
-          <Skeleton key={index} isLoaded={articleList ? true : false}>
+          <Skeleton
+            key={index}
+            isLoaded={articleList.length > 0 ? true : false}
+          >
             <Box
               _hover={{
                 bg: "gray.500",
