@@ -67,8 +67,8 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
       <Flex gridGap={4} align="center">
         <Text fontSize="sm">Choose Language</Text>
         <Select defaultValue="en" w="240px" onChange={filterByLanguage}>
-          <option value="idn">Indonesian</option>
           <option value="en">English</option>
+          <option value="idn">Indonesian</option>
         </Select>
       </Flex>
 
