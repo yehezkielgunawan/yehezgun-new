@@ -62,6 +62,9 @@ const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
               ? postData.fields.article_image[0].url
               : DEFAULT_IMG_ARTICLE
           }
+          w="100%"
+          h="auto"
+          loading="lazy"
         />
         <Heading as="h1" fontSize="2xl">
           <b>{postData.fields.title}</b>

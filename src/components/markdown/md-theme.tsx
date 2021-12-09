@@ -105,6 +105,6 @@ export const newTheme = {
     );
   },
   img: (props: any) => {
-    return <Img alt="article-image" w="100%" h="auto" {...props} />;
+    return <Img alt="article-image" w="100%" h="auto" loading="lazy" {...props} />;
   },
 };
