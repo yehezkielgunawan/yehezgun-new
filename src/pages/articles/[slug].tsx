@@ -37,7 +37,7 @@ export async function getStaticPaths() {
   const table = await getArticleList();
   return {
     paths: table.map((row) => `/articles/${row.fields.slug}`),
-    fallback: false,
+    fallback: true,
   };
 }
 
