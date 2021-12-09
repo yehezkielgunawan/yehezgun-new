@@ -16,7 +16,7 @@ import { formatDate } from "functions/helpers/formatDate";
 import { getArticleList } from "functions/services/fetcher";
 import {
   Articles as ArticlesType,
-  SingleArticle,
+  SingleArticleInList,
   SingleRes,
 } from "functions/services/types";
 
@@ -74,7 +74,7 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
 
       {dataArticles
         .filter(
-          (article: SingleRes<SingleArticle>) =>
+          (article: SingleRes<SingleArticleInList>) =>
             article.fields.lang === language
         )
         .map((article, index) => (

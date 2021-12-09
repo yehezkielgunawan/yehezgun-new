@@ -58,4 +58,9 @@ export type SingleArticle = {
   content: string;
 };
 
-export type Articles = Array<SingleRes<SingleArticle>>;
+export type SingleArticleInList = Pick<
+  SingleArticle,
+  "title" | "slug" | "article_image" | "date" | "lang"
+>;
+
+export type Articles = Array<SingleRes<SingleArticleInList>>;
