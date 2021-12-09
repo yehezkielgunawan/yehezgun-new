@@ -105,7 +105,15 @@ export const newTheme = {
   },
   img: (props: any) => {
     return (
-      <Image alt="article-image" w="100%" h="auto" loading="lazy" {...props} />
+      <Image
+        alt="article-image"
+        w="100%"
+        h="auto"
+        htmlWidth="100%"
+        htmlHeight="auto"
+        loading="lazy"
+        {...props}
+      />
     );
   },
 };
