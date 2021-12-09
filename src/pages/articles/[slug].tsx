@@ -1,9 +1,9 @@
 /* eslint-disable react/no-children-prop */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChevronLeftIcon } from "@chakra-ui/icons";
-import { Button, Divider, Img, Stack, Text } from "@chakra-ui/react";
+import { Button, Divider, Heading, Img, Stack, Text } from "@chakra-ui/react";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
-import { useRouter } from "next/dist/client/router";
+import NextLink from "next/link";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -42,8 +42,6 @@ export async function getStaticPaths() {
 }
 
 const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
-  const router = useRouter();
-
   if (!postData) {
     <PostLoader />;
   }
@@ -65,7 +63,9 @@ const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
               : DEFAULT_IMG_ARTICLE
           }
         />
-
+        <Heading as="h1" fontSize="2xl">
+          <b>{postData.fields.title}</b>
+        </Heading>
         <Text fontSize="sm">
           Published on {formatDate(postData.fields.date)}
         </Text>
@@ -76,9 +76,9 @@ const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
         children={postData.fields.content}
         remarkPlugins={[remarkGfm, rehypeAutolinkHeadings]}
       />
-      <Button onClick={() => router.back()} leftIcon={<ChevronLeftIcon />}>
-        Go Back
-      </Button>
+      <NextLink href="/articles" passHref>
+        <Button leftIcon={<ChevronLeftIcon />}>Go Back</Button>
+      </NextLink>
     </Main>
   );
 };

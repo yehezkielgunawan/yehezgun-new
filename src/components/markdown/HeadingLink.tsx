@@ -13,12 +13,12 @@ const HeadingLink = ({ children, as }: HeadingLinkProps) => {
   const level = Number((as ?? "h3").split("h")[1]);
 
   const size: Record<number, string> = {
-    1: "2xl",
-    2: "xl",
-    3: "lg",
-    4: "md",
-    5: "sm",
-    6: "xs",
+    1: "2rem",
+    2: "1.5rem",
+    3: "1rem",
+    4: "0.75rem",
+    5: "0.5rem",
+    6: "0.25rem",
   };
 
   return (
@@ -27,7 +27,7 @@ const HeadingLink = ({ children, as }: HeadingLinkProps) => {
     >
       <Heading
         as={as}
-        size={size[level]}
+        fontSize={size[level]}
         id={convertToId(String(children))}
         mt={8}
         textDecoration="none"
