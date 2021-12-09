@@ -4,7 +4,6 @@ import {
   Flex,
   Heading,
   Image,
-  Img,
   Link as ChakraLink,
   Skeleton,
   Stack,
@@ -96,13 +95,14 @@ function ProjectsPage({ projectList }: { projectList: ProjectListType }) {
                             rounded="lg"
                             boxSize="40px"
                             fit="contain"
-                            alt="project-image"
+                            alt="stack-images"
                           />
                         )
                       )}
                     </Flex>
                   </Stack>
-                  <Img
+                  <Image
+                    alt="project-image"
                     src={
                       project.fields.image_url
                         ? project.fields.image_url[1].url

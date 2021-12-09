@@ -3,9 +3,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Alert } from "@chakra-ui/alert";
 import { Button } from "@chakra-ui/button";
-import { Img } from "@chakra-ui/image";
 import { Box, Code, Flex, Text } from "@chakra-ui/layout";
-import { Link, useColorMode } from "@chakra-ui/react";
+import { Link, useColorMode, Image } from "@chakra-ui/react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import vs from "react-syntax-highlighter/dist/cjs/styles/hljs/vs";
@@ -105,6 +104,8 @@ export const newTheme = {
     );
   },
   img: (props: any) => {
-    return <Img alt="article-image" w="100%" h="auto" loading="lazy" {...props} />;
+    return (
+      <Image alt="article-image" w="100%" h="auto" loading="lazy" {...props} />
+    );
   },
 };
