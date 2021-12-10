@@ -57,7 +57,7 @@ function ProjectsPage({ projectList }: { projectList: ProjectListType }) {
         <b>Projects</b>
       </Heading>
       <Text fontSize="lg">
-        This is my personal, experiment, and freelance{" "}
+        This is my previous works, personal (experiment), and freelance{" "}
         <i> (if it&apos;s a public project) </i> project list.
       </Text>
 

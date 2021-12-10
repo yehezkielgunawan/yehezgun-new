@@ -10,3 +10,4 @@ I created this web with the help and resources that I got from :
 
 - Minimalist web design and concept from [https://leerob.io/](https://leerob.io/) and [sznm.dev](https://sznm.dev)
 - [Airtable API Official docs](https://airtable.com/api)
+- [Daniel Wirtz Blog about rebuilding the site using NextJS, Chakra UI, and Airtable](https://danielwirtz.com/blog/website-rebuild-nextjs-chakra-ui-airtable)
