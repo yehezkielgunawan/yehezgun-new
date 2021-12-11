@@ -1,16 +1,37 @@
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { IconButton, useColorMode } from "@chakra-ui/react";
+import {
+  IconButton,
+  Popover,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTrigger,
+  useColorMode,
+} from "@chakra-ui/react";
 import React from "react";
 
 const DarkModeSwitch = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
   return (
-    <IconButton
-      aria-label="Sun"
-      icon={isDark ? <MoonIcon /> : <SunIcon />}
-      onClick={toggleColorMode}
-    />
+    <Popover placement="bottom" trigger="hover">
+      <PopoverTrigger>
+        <IconButton
+          borderRadius="full"
+          aria-label="Sun"
+          icon={isDark ? <MoonIcon /> : <SunIcon />}
+          onClick={toggleColorMode}
+        />
+      </PopoverTrigger>
+      <PopoverContent
+        maxW="8rem"
+        bg={!isDark ? "gray.800" : "white"}
+        color={!isDark ? "white" : "black"}
+      >
+        <PopoverHeader textAlign="center" fontWeight="semibold">
+          Theme Toggle
+        </PopoverHeader>
+      </PopoverContent>
+    </Popover>
   );
 };
 
