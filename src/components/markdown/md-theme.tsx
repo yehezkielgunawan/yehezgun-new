@@ -64,8 +64,7 @@ export const newTheme = {
     const toast = useAppToast();
     const { colorMode } = useColorMode();
     const { children, className, inline } = props;
-    const match = /language-(\w+)/.exec(className || "");
-    const language = match?.[1];
+    const language = className?.replace(/language-/, "");
     const childrenValue = String(children).replace(/\n$/, "");
     return !inline ? (
       <Box width="100%">

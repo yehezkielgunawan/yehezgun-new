@@ -7,6 +7,7 @@ import NextLink from "next/link";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 
 import { newTheme } from "components/markdown/md-theme";
@@ -77,7 +78,8 @@ const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
       <ReactMarkdown
         components={ChakraUIRenderer(newTheme)}
         children={postData.fields.content}
-        remarkPlugins={[remarkGfm, rehypeAutolinkHeadings]}
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw, rehypeAutolinkHeadings]}
       />
       <NextLink href="/articles" passHref>
         <Button leftIcon={<ChevronLeftIcon />}>Go Back</Button>
