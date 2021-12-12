@@ -65,9 +65,7 @@ function ProjectsPage({ projectList }: { projectList: ProjectListType }) {
         <Skeleton key={index} isLoaded={dataProjects.length > 0 ? true : false}>
           <ChakraLink isExternal href={project.fields.project_url}>
             <Box
-              _hover={{
-                bg: "gray.500",
-              }}
+              _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
               p={4}
               overflow="hidden"
               borderRadius={10}

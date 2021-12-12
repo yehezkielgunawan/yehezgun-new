@@ -83,9 +83,7 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
             isLoaded={articleList.length > 0 ? true : false}
           >
             <Box
-              _hover={{
-                bg: "gray.500",
-              }}
+              _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
               p={4}
               overflow="hidden"
               borderRadius={10}
