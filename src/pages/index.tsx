@@ -116,9 +116,7 @@ const Index = ({ newestProjects }: { newestProjects: Projects }) => {
                     overflow="hidden"
                     borderRadius={10}
                     borderWidth={2}
-                    _hover={{
-                      bg: "gray.500",
-                    }}
+                    _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
                   >
                     <Stack spacing={3} align="center">
                       <Text textAlign="center" fontSize="lg">
