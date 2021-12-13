@@ -1,19 +1,14 @@
-import { Img } from "@chakra-ui/image";
-import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/layout";
+import { Flex, Heading, Text } from "@chakra-ui/layout";
 import { Select } from "@chakra-ui/select";
 import { Skeleton } from "@chakra-ui/skeleton";
-import NextLink from "next/link";
 import React, { useEffect, useState } from "react";
 
 import { useAppToast } from "components/ui/AppToast";
+import ArticleList from "components/ui/ArticleList";
 import MetaHead from "components/ui/MetaHead";
 import PageTransition from "components/ui/PageTransition";
 import Main from "components/wrapper/Main";
-import {
-  CHECK_YOUR_CONNECTION_MESSAGE,
-  DEFAULT_IMG_ARTICLE,
-} from "constants/baseConfig";
-import { formatDate } from "functions/helpers/formatDate";
+import { CHECK_YOUR_CONNECTION_MESSAGE } from "constants/baseConfig";
 import { getArticleList } from "functions/services/fetcher";
 import {
   Articles as ArticlesType,
@@ -59,20 +54,20 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
         isArticle={false}
       />
       <PageTransition>
-      <Heading as="h5" size="xl">
-        <b>Articles</b>
-      </Heading>
-      <Text fontSize="lg">
-        Just some random thoughts. For me, writting can sharpen my understanding
-        of something.
-      </Text>
-      <Flex gridGap={4} align="center">
-        <Text fontSize="sm">Choose Language</Text>
-        <Select defaultValue="en" w="240px" onChange={filterByLanguage}>
-          <option value="en">English</option>
-          <option value="idn">Indonesian</option>
-        </Select>
-      </Flex>
+        <Heading as="h5" size="xl">
+          <b>Articles</b>
+        </Heading>
+        <Text fontSize="lg">
+          Just some random thoughts. For me, writting can sharpen my
+          understanding of something.
+        </Text>
+        <Flex gridGap={4} align="center">
+          <Text fontSize="sm">Choose Language</Text>
+          <Select defaultValue="en" w="240px" onChange={filterByLanguage}>
+            <option value="en">English</option>
+            <option value="idn">Indonesian</option>
+          </Select>
+        </Flex>
 
         {dataArticles
           .filter(
@@ -84,41 +79,15 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
               key={index}
               isLoaded={articleList.length > 0 ? true : false}
             >
-              <Box
-                _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
-                p={4}
-                overflow="hidden"
-                borderRadius={10}
-                borderWidth={2}
-                my={3}
-              >
-                <NextLink
-                  href={`/articles/${article.fields.slug}`}
-                  as={`/articles/${article.fields.slug}`}
-                  passHref
-                >
-                  <Flex as="a" gridGap={4} align="center">
-                    <Img
-                      src={
-                        article.fields.article_image
-                          ? article.fields.article_image[0].url
-                          : DEFAULT_IMG_ARTICLE
-                      }
-                      objectFit="contain"
-                      boxSize={["100px", "140px"]}
-                      align="center"
-                      loading="lazy"
-                    />
-
-                    <Stack spacing={2}>
-                      <Text fontSize={["lg", "xl"]}>
-                        <b>{article.fields.title}</b>
-                      </Text>
-                      <Text>{formatDate(article.fields.date)}</Text>
-                    </Stack>
-                  </Flex>
-                </NextLink>
-              </Box>
+              <ArticleList
+                slug={article.fields.slug}
+                articleImg={
+                  article.fields.article_image &&
+                  article.fields.article_image[0].url
+                }
+                title={article.fields.title}
+                publishedDate={article.fields.date}
+              />
             </Skeleton>
           ))}
       </PageTransition>

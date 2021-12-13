@@ -3,12 +3,13 @@ import NextLink from "next/link";
 import { ReactNode } from "react";
 type LinkProps = {
   href: string;
+  isExternal: boolean;
   children: ReactNode;
 };
-export const LinkComponent = ({ href, children }: LinkProps) => {
+export const LinkComponent = ({ href, children, isExternal }: LinkProps) => {
   return (
     <NextLink href={href} passHref>
-      <ChakraLink>{children}</ChakraLink>
+      <ChakraLink isExternal={isExternal}>{children}</ChakraLink>
     </NextLink>
   );
 };

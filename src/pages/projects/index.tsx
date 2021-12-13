@@ -4,7 +4,6 @@ import {
   Flex,
   Heading,
   Image,
-  Link as ChakraLink,
   Skeleton,
   Stack,
   Text,
@@ -12,6 +11,7 @@ import {
 import React, { useEffect } from "react";
 
 import { useAppToast } from "components/ui/AppToast";
+import { LinkComponent } from "components/ui/LinkComponent";
 import MetaHead from "components/ui/MetaHead";
 import PageTransition from "components/ui/PageTransition";
 import Main from "components/wrapper/Main";
@@ -68,7 +68,7 @@ function ProjectsPage({ projectList }: { projectList: ProjectListType }) {
             key={index}
             isLoaded={dataProjects.length > 0 ? true : false}
           >
-            <ChakraLink isExternal href={project.fields.project_url}>
+            <LinkComponent isExternal={true} href={project.fields.project_url}>
               <Box
                 _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
                 p={4}
@@ -123,7 +123,7 @@ function ProjectsPage({ projectList }: { projectList: ProjectListType }) {
                   </Flex>
                 </Stack>
               </Box>
-            </ChakraLink>
+            </LinkComponent>
           </Skeleton>
         ))}
       </Main>

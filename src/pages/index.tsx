@@ -7,7 +7,6 @@ import {
   Heading,
   Image,
   Img,
-  Link as ChakraLink,
   SimpleGrid,
   Skeleton,
   Stack,
@@ -17,6 +16,7 @@ import NextLink from "next/link";
 import React, { useEffect } from "react";
 
 import { useAppToast } from "components/ui/AppToast";
+import { LinkComponent } from "components/ui/LinkComponent";
 import MetaHead from "components/ui/MetaHead";
 import PageTransition from "components/ui/PageTransition";
 import PopoverComponent from "components/ui/PopoverComponent";
@@ -112,7 +112,10 @@ const Index = ({ newestProjects }: { newestProjects: Projects }) => {
             {dataProjects.map((project, index) => {
               return (
                 <Skeleton key={index} isLoaded={dataProjects ? true : false}>
-                  <ChakraLink isExternal href={project.fields.project_url}>
+                  <LinkComponent
+                    isExternal={true}
+                    href={project.fields.project_url}
+                  >
                     <Box
                       p={1}
                       overflow="hidden"
@@ -139,7 +142,7 @@ const Index = ({ newestProjects }: { newestProjects: Projects }) => {
                         />
                       </Stack>
                     </Box>
-                  </ChakraLink>
+                  </LinkComponent>
                 </Skeleton>
               );
             })}
