@@ -122,6 +122,8 @@ const Index = ({ newestProjects }: { newestProjects: Projects }) => {
                       borderRadius={10}
                       borderWidth={2}
                       _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
+                      transition="all 0.3s"
+                      transition-timing-function="spring(1 100 10 10)"
                     >
                       <Stack spacing={3} align="center">
                         <Text textAlign="center" fontSize="lg">

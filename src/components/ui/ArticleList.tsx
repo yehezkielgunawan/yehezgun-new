@@ -22,6 +22,8 @@ const ArticleList = ({
   return (
     <Box
       _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
+      transition="all 0.3s"
+      transition-timing-function="spring(1 100 10 10)"
       p={4}
       overflow="hidden"
       borderRadius={10}
