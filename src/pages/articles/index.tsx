@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 
 import { useAppToast } from "components/ui/AppToast";
 import MetaHead from "components/ui/MetaHead";
+import PageTransition from "components/ui/PageTransition";
 import Main from "components/wrapper/Main";
 import {
   CHECK_YOUR_CONNECTION_MESSAGE,
@@ -57,6 +58,7 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
         route="articles"
         isArticle={false}
       />
+      <PageTransition>
       <Heading as="h5" size="xl">
         <b>Articles</b>
       </Heading>
@@ -72,52 +74,54 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
         </Select>
       </Flex>
 
-      {dataArticles
-        .filter(
-          (article: SingleRes<SingleArticleInList>) =>
-            article.fields.lang === language
-        )
-        .map((article, index) => (
-          <Skeleton
-            key={index}
-            isLoaded={articleList.length > 0 ? true : false}
-          >
-            <Box
-              _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
-              p={4}
-              overflow="hidden"
-              borderRadius={10}
-              borderWidth={2}
+        {dataArticles
+          .filter(
+            (article: SingleRes<SingleArticleInList>) =>
+              article.fields.lang === language
+          )
+          .map((article, index) => (
+            <Skeleton
+              key={index}
+              isLoaded={articleList.length > 0 ? true : false}
             >
-              <NextLink
-                href={`/articles/${article.fields.slug}`}
-                as={`/articles/${article.fields.slug}`}
-                passHref
+              <Box
+                _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
+                p={4}
+                overflow="hidden"
+                borderRadius={10}
+                borderWidth={2}
+                my={3}
               >
-                <Flex as="a" gridGap={4} align="center">
-                  <Img
-                    src={
-                      article.fields.article_image
-                        ? article.fields.article_image[0].url
-                        : DEFAULT_IMG_ARTICLE
-                    }
-                    objectFit="contain"
-                    boxSize={["100px", "140px"]}
-                    align="center"
-                    loading="lazy"
-                  />
+                <NextLink
+                  href={`/articles/${article.fields.slug}`}
+                  as={`/articles/${article.fields.slug}`}
+                  passHref
+                >
+                  <Flex as="a" gridGap={4} align="center">
+                    <Img
+                      src={
+                        article.fields.article_image
+                          ? article.fields.article_image[0].url
+                          : DEFAULT_IMG_ARTICLE
+                      }
+                      objectFit="contain"
+                      boxSize={["100px", "140px"]}
+                      align="center"
+                      loading="lazy"
+                    />
 
-                  <Stack spacing={2}>
-                    <Text fontSize={["lg", "xl"]}>
-                      <b>{article.fields.title}</b>
-                    </Text>
-                    <Text>{formatDate(article.fields.date)}</Text>
-                  </Stack>
-                </Flex>
-              </NextLink>
-            </Box>
-          </Skeleton>
-        ))}
+                    <Stack spacing={2}>
+                      <Text fontSize={["lg", "xl"]}>
+                        <b>{article.fields.title}</b>
+                      </Text>
+                      <Text>{formatDate(article.fields.date)}</Text>
+                    </Stack>
+                  </Flex>
+                </NextLink>
+              </Box>
+            </Skeleton>
+          ))}
+      </PageTransition>
     </Main>
   );
 }

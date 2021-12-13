@@ -8,6 +8,7 @@ import { GoPrimitiveDot } from "react-icons/go";
 
 import { useAppToast } from "components/ui/AppToast";
 import MetaHead from "components/ui/MetaHead";
+import PageTransition from "components/ui/PageTransition";
 import PopoverComponent from "components/ui/PopoverComponent";
 import Main from "components/wrapper/Main";
 import { CHECK_YOUR_CONNECTION_MESSAGE } from "constants/baseConfig";
@@ -40,97 +41,102 @@ function AboutMe({ experienceList }: { experienceList: Experiences }) {
   }, [experienceList, toast]);
 
   return (
-    <Main>
-      <MetaHead
-        pageTitle="About Me"
-        pageDesc="A little description about me."
-        route="aboutme"
-        isArticle={true}
-      />
-      <Flex justifyContent="space-between" gridGap={[4, 8]} align="center">
-        <Stack spacing={[3, 4]}>
-          <Heading as="h5" size="lg">
-            Yo, hi there!
-          </Heading>
-          <Box display={["block", "none"]}>
-            <NextImage
-              src="/assets/yehez-profile.png"
-              width={400}
-              height={250}
-              layout="responsive"
-              alt="Picture of me"
-            />
-          </Box>
-          <Text textAlign="justify" fontSize={["sm", "md"]}>
-            I’m Yehezkiel Gunawan, a frontend engineer. You can call me Yehez.
-            Recently, I&apos;m learning React and its libraries. To sharpen my
-            skills, I usually push myself make some mini projects using a
-            library or framework that I want to master and publish it here.
-            Sometimes, I also write an article to explain the process behind it.
-          </Text>
-          <Text textAlign="justify" fontSize={["sm", "md"]}>
-            Besides of programming things, I like to explore some new tech
-            stuff, playing games sometimes, and watching animes.
-          </Text>
-          <Text fontSize="xs" textAlign="justify">
-            <i>
-              Fun Fact: Actually, I&apos;m afraid of the live coding interview
-              or session, but if I have to, I &apos;ll do it whatever it takes
-              😁. Don&apos;t expect me as a pro, I&apos;m just a curious newbie
-              here.
-            </i>
-          </Text>
-        </Stack>
-        <Image
-          src="/assets/yehez-profile.png"
-          objectFit="contain"
-          w="40%"
-          borderRadius={4}
-          loading="lazy"
-          alt="photo-profile"
-          display={["none", "flex"]}
+    <PageTransition>
+      <Main>
+        <MetaHead
+          pageTitle="About Me"
+          pageDesc="A little description about me."
+          route="aboutme"
+          isArticle={true}
         />
-      </Flex>
-
-      <Flex gridGap={3} wrap="wrap">
-        {contactList.map((contact, index) => (
-          <PopoverComponent
-            key={index}
-            boxIcon={contact.icon}
-            description={contact.name}
-            url={contact.link_route}
-            isSimple={true}
+        <Flex justifyContent="space-between" gridGap={[4, 8]} align="center">
+          <Stack spacing={[3, 4]}>
+            <Heading as="h5" size="lg">
+              Yo, hi there!
+            </Heading>
+            <Box display={["block", "none"]}>
+              <NextImage
+                src="/assets/yehez-profile.png"
+                width={400}
+                height={250}
+                layout="responsive"
+                alt="Picture of me"
+              />
+            </Box>
+            <Text textAlign="justify" fontSize={["sm", "md"]}>
+              I’m Yehezkiel Gunawan, a frontend engineer. You can call me Yehez.
+              Recently, I&apos;m learning React and its libraries. To sharpen my
+              skills, I usually push myself make some mini projects using a
+              library or framework that I want to master and publish it here.
+              Sometimes, I also write an article to explain the process behind
+              it.
+            </Text>
+            <Text textAlign="justify" fontSize={["sm", "md"]}>
+              Besides of programming things, I like to explore some new tech
+              stuff, playing games sometimes, and watching animes.
+            </Text>
+            <Text fontSize="xs" textAlign="justify">
+              <i>
+                Fun Fact: Actually, I&apos;m afraid of the live coding interview
+                or session, but if I have to, I &apos;ll do it whatever it takes
+                😁. Don&apos;t expect me as a pro, I&apos;m just a curious
+                newbie here.
+              </i>
+            </Text>
+          </Stack>
+          <Image
+            src="/assets/yehez-profile.png"
+            objectFit="contain"
+            w="40%"
+            borderRadius={4}
+            loading="lazy"
+            alt="photo-profile"
+            display={["none", "flex"]}
           />
-        ))}
-      </Flex>
+        </Flex>
 
-      <Divider borderWidth={2} />
-      <Stack spacing={4} py={4}>
-        <Heading as="h5">Work Experiences</Heading>
-        {dataExperiences.map((experience, index) => {
-          return (
-            <Skeleton key={index} isLoaded={experience ? true : false}>
-              <Flex gridGap={3} align="center">
-                <GoPrimitiveDot />
-                <Stack spacing={2}>
-                  <Text fontSize="md">
-                    💼 <b>{experience.fields.name}</b>
-                  </Text>
-                  <Text fontSize="sm">🏢 {experience.fields.company_name}</Text>
-                  <Text fontSize="md">
-                    ⌛{" "}
-                    <b>
-                      <i>{experience.fields.duration}</i>
-                    </b>
-                  </Text>
-                </Stack>
-              </Flex>
-              <Divider />
-            </Skeleton>
-          );
-        })}
-      </Stack>
-    </Main>
+        <Flex gridGap={3} wrap="wrap">
+          {contactList.map((contact, index) => (
+            <PopoverComponent
+              key={index}
+              boxIcon={contact.icon}
+              description={contact.name}
+              url={contact.link_route}
+              isSimple={true}
+            />
+          ))}
+        </Flex>
+
+        <Divider borderWidth={2} />
+        <Stack spacing={4} py={4}>
+          <Heading as="h5">Work Experiences</Heading>
+          {dataExperiences.map((experience, index) => {
+            return (
+              <Skeleton key={index} isLoaded={experience ? true : false}>
+                <Flex gridGap={3} align="center">
+                  <GoPrimitiveDot />
+                  <Stack spacing={2}>
+                    <Text fontSize="md">
+                      💼 <b>{experience.fields.name}</b>
+                    </Text>
+                    <Text fontSize="sm">
+                      🏢 {experience.fields.company_name}
+                    </Text>
+                    <Text fontSize="md">
+                      ⌛{" "}
+                      <b>
+                        <i>{experience.fields.duration}</i>
+                      </b>
+                    </Text>
+                  </Stack>
+                </Flex>
+                <Divider />
+              </Skeleton>
+            );
+          })}
+        </Stack>
+      </Main>
+    </PageTransition>
   );
 }
 
