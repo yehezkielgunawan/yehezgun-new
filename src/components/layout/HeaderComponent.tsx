@@ -4,6 +4,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import { useRouter } from "next/dist/client/router";
+import NextLink from "next/link";
 import React from "react";
 
 import { LinkComponent } from "components/ui/LinkComponent";
@@ -67,7 +68,7 @@ const HeaderComponent = () => {
             />
             <MenuList>
               {menuList.map((menu, index) => (
-                <LinkComponent key={index} href={menu.route} isExternal={false}>
+                <NextLink key={index} href={menu.route} passHref>
                   <MenuItem
                     as="a"
                     _hover={{
@@ -79,7 +80,7 @@ const HeaderComponent = () => {
                       <b>{menu.label}</b>
                     </Text>
                   </MenuItem>
-                </LinkComponent>
+                </NextLink>
               ))}
             </MenuList>
           </Menu>
