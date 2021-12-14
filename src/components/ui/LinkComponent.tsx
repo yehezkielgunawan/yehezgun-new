@@ -9,7 +9,7 @@ type LinkProps = {
 export const LinkComponent = ({ href, children, isExternal }: LinkProps) => {
   return (
     <NextLink href={href} passHref>
-      <ChakraLink as={NextLink} isExternal={isExternal}>
+      <ChakraLink isExternal={isExternal}>
         {children}
       </ChakraLink>
     </NextLink>
