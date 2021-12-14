@@ -1,24 +1,12 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  Flex,
-  Heading,
-  Image,
-  Skeleton,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Heading, Skeleton, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 
 import { useAppToast } from "components/ui/AppToast";
-import { LinkComponent } from "components/ui/LinkComponent";
 import MetaHead from "components/ui/MetaHead";
 import PageTransition from "components/ui/PageTransition";
+import ProjectCard from "components/ui/ProjectCard";
 import Main from "components/wrapper/Main";
-import {
-  CHECK_YOUR_CONNECTION_MESSAGE,
-  DEFAULT_IMG,
-} from "constants/baseConfig";
+import { CHECK_YOUR_CONNECTION_MESSAGE } from "constants/baseConfig";
 import { getAllProjectsTable } from "functions/services/fetcher";
 import { Projects as ProjectListType } from "functions/services/types";
 
@@ -68,64 +56,15 @@ function ProjectsPage({ projectList }: { projectList: ProjectListType }) {
             key={index}
             isLoaded={dataProjects.length > 0 ? true : false}
           >
-            <LinkComponent isExternal={true} href={project.fields.project_url}>
-              <Box
-                _hover={{ transform: "translateY(-4px)", shadow: "lg" }}
-                transition="all 0.3s"
-                transition-timing-function="spring(1 100 10 10)"
-                p={4}
-                overflow="hidden"
-                borderRadius={10}
-                borderWidth={2}
-                w="100%"
-              >
-                <Stack spacing={3} px={3}>
-                  <Flex justifyContent="space-between">
-                    <Text fontSize={["lg", "xl"]}>
-                      <b>{project.fields.project_title}</b>
-                    </Text>
-                    <ExternalLinkIcon fontSize="lg" />
-                  </Flex>
-                  <Flex
-                    gridGap={2}
-                    align="center"
-                    justifyContent="space-between"
-                  >
-                    <Stack spacing={3}>
-                      <Text fontSize={["md", "lg"]}>
-                        {project.fields.description}
-                      </Text>
-                      <Flex gridGap={2}>
-                        {project.fields.made_using.map(
-                          (framework, frameworkIndex) => (
-                            <Image
-                              key={frameworkIndex}
-                              src={framework.url}
-                              rounded="lg"
-                              boxSize="40px"
-                              fit="contain"
-                              alt="stack-images"
-                            />
-                          )
-                        )}
-                      </Flex>
-                    </Stack>
-                    <Image
-                      alt="project-image"
-                      src={
-                        project.fields.image_url
-                          ? project.fields.image_url[1].url
-                          : DEFAULT_IMG
-                      }
-                      objectFit="cover"
-                      boxSize={["100px", "120px"]}
-                      align="center"
-                      rounded="2xl"
-                    />
-                  </Flex>
-                </Stack>
-              </Box>
-            </LinkComponent>
+            <ProjectCard
+              projectName={project.fields.project_title}
+              projectDesc={project.fields.description}
+              projectUrl={project.fields.project_url}
+              projectImg={
+                project.fields.image_url && project.fields.image_url[1].url
+              }
+              madeUsing={project.fields.made_using}
+            />
           </Skeleton>
         ))}
       </Main>
