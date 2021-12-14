@@ -39,19 +39,19 @@ const HeaderComponent = () => {
 
         <Flex gridGap={3} align="center" display={["none", "flex"]}>
           {menuList.map((menu, index) => (
-            <LinkComponent key={index} href={menu.route} isExternal={false}>
-              <Text
-                as="a"
-                fontSize="md"
-                _hover={{
-                  color: "gray.500",
-                }}
-                color={router.pathname === menu.route ? "gray.500" : ""}
-                cursor="pointer"
-              >
+            <Text
+              fontSize="md"
+              _hover={{
+                color: "gray.500",
+              }}
+              color={router.pathname === menu.route ? "gray.500" : ""}
+              cursor="pointer"
+              key={index}
+            >
+              <LinkComponent href={menu.route} isExternal={false}>
                 <b>{menu.label}</b>
-              </Text>
-            </LinkComponent>
+              </LinkComponent>
+            </Text>
           ))}
           <DarkModeSwitch />
         </Flex>
