@@ -37,7 +37,14 @@ export async function getStaticProps({
 export async function getStaticPaths() {
   const table = await getArticleList();
   return {
-    paths: table.map((row) => `/articles/${row.fields.slug}`),
+    paths: table.map((row) => {
+      return {
+        params: {
+          id: row.id,
+          slug: row.fields.slug
+        }
+      }
+    }),
     fallback: false,
   };
 }
