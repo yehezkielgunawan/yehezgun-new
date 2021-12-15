@@ -53,22 +53,22 @@ function Articles({ articleList }: { articleList: ArticlesType }) {
         route="articles"
         isArticle={false}
       />
-      <PageTransition>
-        <Heading as="h5" size="xl">
-          <b>Articles</b>
-        </Heading>
-        <Text fontSize="lg">
-          Just some random thoughts. For me, writting can sharpen my
-          understanding of something.
-        </Text>
-        <Flex gridGap={4} align="center">
-          <Text fontSize="sm">Choose Language</Text>
-          <Select defaultValue="en" w="240px" onChange={filterByLanguage}>
-            <option value="en">English</option>
-            <option value="idn">Indonesian</option>
-          </Select>
-        </Flex>
+      <Heading as="h5" size="xl">
+        <b>Articles</b>
+      </Heading>
+      <Text fontSize="lg">
+        Just some random thoughts. For me, writting can sharpen my understanding
+        of something.
+      </Text>
+      <Flex gridGap={4} align="center">
+        <Text fontSize="sm">Choose Language</Text>
+        <Select defaultValue="en" w="240px" onChange={filterByLanguage}>
+          <option value="en">English</option>
+          <option value="idn">Indonesian</option>
+        </Select>
+      </Flex>
 
+      <PageTransition>
         {dataArticles
           .filter(
             (article: SingleRes<SingleArticleInList>) =>
