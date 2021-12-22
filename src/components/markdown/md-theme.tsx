@@ -49,12 +49,20 @@ export const newTheme = {
       <Link href={href} isExternal={href[0] === "#" ? false : true}>
         <Text
           as="u"
-          _hover={{
-            border: "2px",
-            borderColor: "blue.500",
-            borderRadius: "md",
-          }}
-          cursor={href.includes("#") ? "pointer" : "ne-resize"}
+          _hover={
+            href[0] === "#"
+              ? {
+                  border: "2px",
+                  borderColor: "blue.500",
+                  borderRadius: "md",
+                }
+              : {
+                  border: "2px",
+                  borderColor: "green.500",
+                  borderRadius: "md",
+                }
+          }
+          cursor={href[0] == "#" ? "pointer" : "ne-resize"}
           {...props}
         />
       </Link>

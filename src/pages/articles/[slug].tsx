@@ -93,8 +93,8 @@ const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
           h="auto"
           loading="lazy"
         />
-        <Flex justify="space-between" align="center">
-          <Stack>
+        <Flex justify="space-between" align="center" wrap={["wrap", "nowrap"]}>
+          <Stack w={["100%", "90%"]}>
             <Heading as="h1" fontSize="2xl">
               <b>{postData.fields.title}</b>
             </Heading>
