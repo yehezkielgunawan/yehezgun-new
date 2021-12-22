@@ -1,7 +1,15 @@
 /* eslint-disable react/no-children-prop */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChevronLeftIcon } from "@chakra-ui/icons";
-import { Button, Divider, Heading, Img, Stack, Text } from "@chakra-ui/react";
+import { ChevronLeftIcon, LinkIcon } from "@chakra-ui/icons";
+import {
+  Button,
+  Divider,
+  Flex,
+  Heading,
+  Img,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import NextLink from "next/link";
 import React from "react";
@@ -11,6 +19,7 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 
 import { newTheme } from "components/markdown/md-theme";
+import { useAppToast } from "components/ui/AppToast";
 import MetaHead from "components/ui/MetaHead";
 import PostLoader from "components/ui/PostLoader";
 import Main from "components/wrapper/Main";
@@ -41,15 +50,25 @@ export async function getStaticPaths() {
       return {
         params: {
           id: row.id,
-          slug: row.fields.slug
-        }
-      }
+          slug: row.fields.slug,
+        },
+      };
     }),
     fallback: false,
   };
 }
 
 const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
+  const toast = useAppToast();
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    toast({
+      status: "success",
+      title: "Link Copied!",
+    });
+  };
+
   if (!postData) {
     <PostLoader />;
   }
@@ -74,12 +93,24 @@ const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
           h="auto"
           loading="lazy"
         />
-        <Heading as="h1" fontSize="2xl">
-          <b>{postData.fields.title}</b>
-        </Heading>
-        <Text fontSize="sm">
-          Published on {formatDate(postData.fields.date)}
-        </Text>
+        <Flex justify="space-between" align="center">
+          <Stack>
+            <Heading as="h1" fontSize="2xl">
+              <b>{postData.fields.title}</b>
+            </Heading>
+            <Text fontSize="sm">
+              Published on {formatDate(postData.fields.date)}
+            </Text>
+          </Stack>
+          <Button
+            colorScheme="teal"
+            variant="outline"
+            leftIcon={<LinkIcon />}
+            onClick={() => handleCopyLink()}
+          >
+            Copy Link
+          </Button>
+        </Flex>
         <Divider />
       </Stack>
       <ReactMarkdown
