@@ -4,12 +4,12 @@ const defaultSEOConfig = {
   titleTemplate: "%s | YehezGun",
   defaultTitle: "YehezGun",
   description:
-    "Yehezkiel Gunawan's newest personal site.",
+    "Yehezkiel Gunawan's portfolio site.",
   canonical: "https://yehezgun.com",
   openGraph: {
     url: "https://yehezgun.com",
     title: "yehezgun",
-    description: "Yehezkiel Gunawan's newest personal site",
+    description: "Yehezkiel Gunawan's portfolio site",
     type: "website",
     images: [
       {
