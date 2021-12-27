@@ -9,7 +9,9 @@ import {
   Img,
   Stack,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
+import { Giscus, GiscusProps } from "@giscus/react";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import NextLink from "next/link";
 import React from "react";
@@ -60,6 +62,7 @@ export async function getStaticPaths() {
 
 const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
   const toast = useAppToast();
+  const giscusTheme: GiscusProps["theme"] = useColorModeValue("light", "dark");
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -122,6 +125,16 @@ const Post = ({ postData }: { postData: SingleRes<SingleArticle> }) => {
       <NextLink href="/articles" passHref>
         <Button leftIcon={<ChevronLeftIcon />}>Go Back</Button>
       </NextLink>
+      <Giscus
+        repo="yehezkielgunawan/yehezgun-new"
+        repoId="R_kgDOGe71uA"
+        mapping="pathname"
+        reactionsEnabled="0"
+        theme={giscusTheme}
+        category="Article Post"
+        categoryId="DIC_kwDOGe71uM4CAb-j"
+        emitMetadata="0"
+      />
     </Main>
   );
 };
