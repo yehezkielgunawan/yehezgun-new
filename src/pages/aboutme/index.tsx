@@ -77,10 +77,8 @@ function AboutMe({ experienceList }: { experienceList: Experiences }) {
             </Text>
             <Text fontSize="xs" textAlign="justify">
               <i>
-                Fun Fact: Actually, I&apos;m afraid of the live coding interview
-                or session, but if I have to, I &apos;ll do it whatever it takes
-                😁. Don&apos;t expect me as a pro, I&apos;m just a curious
-                newbie here.
+                Fun Fact: Actually, I&apos;m still struggling with native CSS
+                even I&apos;m a frontend engineer, LOL.
               </i>
             </Text>
           </Stack>
