@@ -26,7 +26,9 @@ export const getAllProjectsTable = async () => {
 };
 
 export const getAllExperiences = async () => {
-  const records = await base("Experiences").select({}).all();
+  const records = await base("Experiences")
+    .select({ sort: [{ field: "date_added", direction: "desc" }] })
+    .all();
   const minifiedRecords = getMinifiedRecords(records);
   return minifiedRecords;
 };

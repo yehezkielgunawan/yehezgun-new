@@ -45,6 +45,7 @@ export type SingleExperience = {
   name: string;
   company_name: string;
   duration: string;
+  date_added: string;
 };
 
 export type Experiences = Array<SingleRes<SingleExperience>>;
