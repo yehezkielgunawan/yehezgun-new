@@ -11,7 +11,6 @@ import {
   PopoverFooter,
   PopoverHeader,
   PopoverTrigger,
-  useColorMode,
 } from "@chakra-ui/react";
 import React from "react";
 import { IconType } from "react-icons";
@@ -30,33 +29,7 @@ const PopoverComponent = ({
   url,
   isSimple,
 }: PopoverComponentProps) => {
-  const { colorMode } = useColorMode();
-  return isSimple ? (
-    <>
-      <Popover placement="bottom" trigger="hover">
-        <PopoverTrigger>
-          <Box as="a" href={url} target="_blank">
-            <Icon
-              _hover={{
-                color: "gray.500",
-              }}
-              as={boxIcon}
-              fontSize="4xl"
-            />
-          </Box>
-        </PopoverTrigger>
-        <PopoverContent
-          maxW="10rem"
-          bg={colorMode === "light" ? "gray.800" : "white"}
-          color={colorMode === "light" ? "white" : "black"}
-        >
-          <PopoverHeader textAlign="center" fontWeight="semibold">
-            {description}
-          </PopoverHeader>
-        </PopoverContent>
-      </Popover>
-    </>
-  ) : (
+  return (
     <>
       <Popover placement="top" trigger="hover">
         <PopoverTrigger>
@@ -70,17 +43,24 @@ const PopoverComponent = ({
             />
           </Box>
         </PopoverTrigger>
-        <PopoverContent>
+        <PopoverContent maxW={isSimple ? "10rem" : "auto"}>
           <PopoverArrow />
           <PopoverCloseButton />
-          <PopoverBody>{description}</PopoverBody>
-          <PopoverFooter>
-            <ChakraLink textColor="blue.400" isExternal href={url}>
-              <Flex gridGap={2} align="center">
-                Go to the official docs site. <FaExternalLinkAlt />
-              </Flex>
-            </ChakraLink>
-          </PopoverFooter>
+          {isSimple && (
+            <PopoverHeader textAlign="center" fontWeight="semibold">
+              {description}
+            </PopoverHeader>
+          )}
+          {!isSimple && <PopoverBody>{description}</PopoverBody>}
+          {!isSimple && (
+            <PopoverFooter>
+              <ChakraLink textColor="blue.400" isExternal href={url}>
+                <Flex gridGap={2} align="center">
+                  Go to the official docs site. <FaExternalLinkAlt />
+                </Flex>
+              </ChakraLink>
+            </PopoverFooter>
+          )}
         </PopoverContent>
       </Popover>
     </>
