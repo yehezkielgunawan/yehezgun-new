@@ -64,12 +64,12 @@ function AboutMe({ experienceList }: { experienceList: Experiences }) {
               />
             </Box>
             <Text textAlign="justify" fontSize={["sm", "md"]}>
-              I&apos;m Yehezkiel Gunawan, a frontend engineer. You can call me Yehez.
-              Recently, I&apos;m learning React and its libraries. To sharpen my
-              skills, I usually push myself make some mini projects using a
-              library or framework that I want to master and publish it here.
-              Sometimes, I also write an article to explain the process behind
-              it.
+              I&apos;m Yehezkiel Gunawan, a frontend engineer. You can call me
+              Yehez. Recently, I&apos;m learning React and its libraries. To
+              sharpen my understanding about something, I usually push myself to
+              craft some projects and publish it here. Sometimes, I write some
+              blogs to share my experience, testimonies, or tips & tricks as a
+              frontend developer.
             </Text>
             <Text textAlign="justify" fontSize={["sm", "md"]}>
               Besides of programming things, I like to explore some new tech
