@@ -2,6 +2,7 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   IconButton,
   Popover,
+  PopoverArrow,
   PopoverContent,
   PopoverHeader,
   PopoverTrigger,
@@ -22,11 +23,8 @@ const DarkModeSwitch = () => {
           onClick={toggleColorMode}
         />
       </PopoverTrigger>
-      <PopoverContent
-        maxW="8rem"
-        bg={!isDark ? "gray.800" : "white"}
-        color={!isDark ? "white" : "black"}
-      >
+      <PopoverContent maxW="8rem">
+        <PopoverArrow />
         <PopoverHeader textAlign="center" fontWeight="semibold">
           Theme Toggle
         </PopoverHeader>
