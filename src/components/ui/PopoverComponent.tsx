@@ -31,7 +31,7 @@ const PopoverComponent = ({
 }: PopoverComponentProps) => {
   return (
     <>
-      <Popover placement="top" trigger="hover">
+      <Popover placement={isSimple ? "bottom" : "top"} trigger="hover">
         <PopoverTrigger>
           <Box as="button">
             <Icon
@@ -45,7 +45,7 @@ const PopoverComponent = ({
         </PopoverTrigger>
         <PopoverContent maxW={isSimple ? "10rem" : "auto"}>
           <PopoverArrow />
-          <PopoverCloseButton />
+          {!isSimple && <PopoverCloseButton />}
           {isSimple && (
             <PopoverHeader textAlign="center" fontWeight="semibold">
               {description}
