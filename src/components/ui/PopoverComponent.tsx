@@ -33,15 +33,27 @@ const PopoverComponent = ({
     <>
       <Popover placement={isSimple ? "bottom" : "top"} trigger="hover">
         <PopoverTrigger>
-          <Box as="button">
-            <Icon
-              _hover={{
-                color: "gray.500",
-              }}
-              as={boxIcon}
-              fontSize="4xl"
-            />
-          </Box>
+          {isSimple ? (
+            <Box as="a" href={url} target="_blank">
+              <Icon
+                _hover={{
+                  color: "gray.500",
+                }}
+                as={boxIcon}
+                fontSize="4xl"
+              />
+            </Box>
+          ) : (
+            <Box as="button">
+              <Icon
+                _hover={{
+                  color: "gray.500",
+                }}
+                as={boxIcon}
+                fontSize="4xl"
+              />
+            </Box>
+          )}
         </PopoverTrigger>
         <PopoverContent maxW={isSimple ? "10rem" : "auto"}>
           <PopoverArrow />
