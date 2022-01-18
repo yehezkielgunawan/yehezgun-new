@@ -1,6 +1,8 @@
 import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
+
 import "@fontsource/catamaran";
+import styles from "styles/styles";
 
 const fonts = { body: "catamaran" };
 
@@ -23,6 +25,7 @@ const theme = extendTheme({
   fonts,
   breakpoints,
   config,
+  styles,
 });
 
 export default theme;
