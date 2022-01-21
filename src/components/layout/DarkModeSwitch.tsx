@@ -19,7 +19,7 @@ const DarkModeSwitch = () => {
         <IconButton
           borderRadius="full"
           aria-label="Sun"
-          icon={isDark ? <MoonIcon /> : <SunIcon />}
+          icon={!isDark ? <MoonIcon /> : <SunIcon />}
           onClick={toggleColorMode}
         />
       </PopoverTrigger>
