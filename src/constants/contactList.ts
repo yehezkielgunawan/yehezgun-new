@@ -1,8 +1,8 @@
-import { FaDev, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaDev, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FcTemplate } from "react-icons/fc";
 import { IconType } from "react-icons/lib";
 import { MdEmail } from "react-icons/md";
-import { SiReadthedocs } from "react-icons/si";
+import { SiReadthedocs, SiDevpost } from "react-icons/si";
 
 export type SingleContact = {
   name: string;
@@ -17,12 +17,22 @@ export const contactList: Array<SingleContact> = [
     link_route: "https://www.linkedin.com/in/yehezkiel-gunawan-595128138/",
   },
   {
+    name: "Twitter",
+    icon: FaTwitter,
+    link_route: "https://twitter.com/YehezGun",
+  },
+  {
     name: "Github",
     icon: FaGithub,
     link_route: "https://github.com/yehezkielgunawan",
   },
   {
     name: "Diskusi Tech",
+    icon: SiDevpost,
+    link_route: "https://diskusi.tech/yehezkielgunawan",
+  },
+  {
+    name: "Dev.to",
     icon: FaDev,
     link_route: "https://diskusi.tech/yehezkielgunawan",
   },
