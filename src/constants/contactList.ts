@@ -34,7 +34,7 @@ export const contactList: Array<SingleContact> = [
   {
     name: "Dev.to",
     icon: FaDev,
-    link_route: "https://diskusi.tech/yehezkielgunawan",
+    link_route: "https://dev.to/yehezkielgunawan",
   },
   {
     name: "Email",
