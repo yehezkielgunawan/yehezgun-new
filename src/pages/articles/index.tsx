@@ -22,6 +22,7 @@ export async function getStaticProps() {
   return {
     props: {
       articleList,
+      revalidate: 30,
     },
   };
 }
