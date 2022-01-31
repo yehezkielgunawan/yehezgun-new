@@ -40,8 +40,8 @@ export async function getStaticProps({
   return {
     props: {
       postData,
-      revalidate: 30,
     },
+    revalidate: 30,
   };
 }
 
