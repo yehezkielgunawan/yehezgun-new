@@ -40,7 +40,14 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <script
+            async
+            defer
+            data-website-id="e78daf71-c9d1-472e-8c63-6526698c5795"
+            src="https://umami.yehezgun.com/umami.js"
+          ></script>
+        </Head>
         <body>
           {/* Make Color mode to persists when you refresh the page. */}
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
