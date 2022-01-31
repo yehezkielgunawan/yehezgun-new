@@ -46,6 +46,7 @@ export default class Document extends NextDocument {
             defer
             data-website-id="e78daf71-c9d1-472e-8c63-6526698c5795"
             src="https://umami.yehezgun.com/umami.js"
+            data-domains="yehezgun.com"
           ></script>
         </Head>
         <body>
