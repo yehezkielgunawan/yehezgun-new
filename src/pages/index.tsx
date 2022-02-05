@@ -26,33 +26,32 @@ import {
   DEFAULT_IMG,
 } from "constants/baseConfig";
 import { techStackList } from "constants/techStacks";
-import { getAllProjectsTable } from "functions/services/fetcher";
+import { getFeaturedProjects } from "functions/services/fetcher";
 import { Projects } from "functions/services/types";
 
 export async function getStaticProps() {
-  const projectList = await getAllProjectsTable();
-  const newestProjects = projectList.slice(0, 2);
+  const featuredProjects = await getFeaturedProjects();
 
   return {
     props: {
-      newestProjects,
+      featuredProjects,
     },
     revalidate: 30,
   };
 }
 
-const Index = ({ newestProjects }: { newestProjects: Projects }) => {
+const Index = ({ featuredProjects }: { featuredProjects: Projects }) => {
   const toast = useAppToast();
-  const dataProjects = newestProjects ?? [];
+  const dataProjects = featuredProjects ?? [];
 
   useEffect(() => {
-    if (!newestProjects) {
+    if (!featuredProjects) {
       toast({
         status: "warning",
         description: CHECK_YOUR_CONNECTION_MESSAGE,
       });
     }
-  }, [newestProjects, toast]);
+  }, [featuredProjects, toast]);
 
   return (
     <PageTransition>

@@ -10,6 +10,7 @@ export type SingleProject = {
   made_using: Array<SingleProjectImg>;
   description: string;
   date_added: string;
+  is_featured: boolean;
 };
 
 export type SingleProjectImg = {

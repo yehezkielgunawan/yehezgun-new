@@ -19,7 +19,20 @@ const minifyRecord = (record: Record<FieldSet>) => {
 
 export const getAllProjectsTable = async () => {
   const records = await base("Projects")
-    .select({ sort: [{ field: "date_added", direction: "desc" }] })
+    .select({
+      sort: [{ field: "date_added", direction: "desc" }],
+    })
+    .all();
+  const minifiedRecords = getMinifiedRecords(records);
+  return minifiedRecords;
+};
+
+export const getFeaturedProjects = async () => {
+  const records = await base("Projects")
+    .select({
+      fields: ["project_title", "image_url", "project_url"],
+      filterByFormula: `{is_featured} = '1'`,
+    })
     .all();
   const minifiedRecords = getMinifiedRecords(records);
   return minifiedRecords;
