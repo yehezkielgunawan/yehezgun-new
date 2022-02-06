@@ -105,7 +105,7 @@ const Index = ({ featuredProjects }: { featuredProjects: Projects }) => {
 
         <Stack spacing={3} pt={6}>
           <Text fontSize="xl">
-            <b>Newest Projects</b>
+            <b>Featured Projects</b>
           </Text>
           <SimpleGrid columns={[1, null, 2]} spacing={3}>
             {dataProjects.map((project, index) => {
