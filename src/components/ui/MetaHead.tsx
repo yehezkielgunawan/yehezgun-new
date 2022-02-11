@@ -27,7 +27,7 @@ const MetaHead = ({
         type: `website`,
         images: [
           {
-            url: `${yehezOgImage(pageTitle, isArticle)}`,
+            url: `${yehezOgImage(pageTitle, isArticle, pageDesc)}`,
             alt: `${pageTitle} | YehezGun`,
             width: 800,
             height: 600,
