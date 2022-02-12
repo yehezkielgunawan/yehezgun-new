@@ -3,8 +3,7 @@ const defaultSEOConfig = {
   title: "YehezGun",
   titleTemplate: "%s | YehezGun",
   defaultTitle: "YehezGun",
-  description:
-    "Yehezkiel Gunawan's portfolio site.",
+  description: "Yehezkiel Gunawan's portfolio site.",
   canonical: "https://yehezgun.com",
   openGraph: {
     url: "https://yehezgun.com",
@@ -13,7 +12,7 @@ const defaultSEOConfig = {
     type: "website",
     images: [
       {
-        url: "https://yehez-og-image.yehezgun.com/yehezgun.com.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fres.cloudinary.com%2Fyehez%2Fimage%2Fupload%2Fv1636202181%2Fpeep_amkhuu.svg&widths=250&heights=250",
+        url: "https://og.yehezgun.com/api/base?description=An%20online%20portfolio%20and%20article%20site%20by%20Yehezkiel%20Gunawan.%20Showcase%20about%20my%20projects%20and%20some%20thoughts%20about%20my%20experience%20in%20web%20development.&siteName=yehezgun.com&templateTitle=Yehezkiel%20Gunawan&theme=dark",
         alt: "yehezgun.com og-image",
         width: 800,
         height: 600,

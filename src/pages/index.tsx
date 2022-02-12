@@ -57,8 +57,8 @@ const Index = ({ featuredProjects }: { featuredProjects: Projects }) => {
     <PageTransition>
       <Main>
         <MetaHead
-          pageTitle="Home"
-          pageDesc="Welcome to my personal site. Take a look and enjoy!"
+          pageTitle="Yehezkiel Gunawan"
+          pageDesc="An online portfolio and article site by Yehezkiel Gunawan. Showcase about my projects and some thoughts about my experience in web development."
           isArticle={false}
         />
 
