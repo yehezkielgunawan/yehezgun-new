@@ -13,6 +13,7 @@ import NextDocument, {
 } from "next/document";
 import React from "react";
 
+import { WEBSITE_ID, WEBSITE_SRC } from "constants/baseConfig";
 import emotionCache from "functions/services/emotion-cache";
 import theme from "theme";
 
@@ -44,8 +45,8 @@ export default class Document extends NextDocument {
           <script
             async
             defer
-            data-website-id="e78daf71-c9d1-472e-8c63-6526698c5795"
-            src="https://umami.yehezgun.com/umami.js"
+            data-website-id={WEBSITE_ID}
+            src={WEBSITE_SRC}
             data-domains="yehezgun.com"
           ></script>
         </Head>
